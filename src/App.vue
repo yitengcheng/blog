@@ -1,19 +1,31 @@
 <template>
-  <div id="app">
-    <router-view></router-view>
-  </div>
+  <el-container id="app">
+    <el-aside width="150px">
+      <Header></Header>
+    </el-aside>
+    <el-main>
+      <router-view class="contain"></router-view>
+    </el-main>
+  </el-container>
 </template>
 
 <script>
+import Header from './components/Header';
 export default {
-    name: 'App'
+    name: 'App',
+    components: { Header }
 };
 </script>
-
 <style>
-.left {
-  float: left;
-  width: 20%;
-  border: 1px solid gray;
+#app {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  min-height: 100%;
+}
+.contain {
+  display: flex;
+  flex: 1;
+  min-height: 100%;
 }
 </style>

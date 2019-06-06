@@ -4,14 +4,13 @@ import Vue from 'vue';
 import App from './App';
 import router from './router';
 import './assets/css/base.css';
-import './assets/css/checkout.css';
-import './assets/css/login.css';
-import './assets/css/product.css';
 import VueLazyLoad from 'vue-lazyload';
 import infiniteScroll from 'vue-infinite-scroll';
 import axios from 'axios';
 import loadsh from 'lodash';
 import store from './vuex/index';
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
 import { currency } from './utils/currency';
 
 Vue.config.productionTip = false;
@@ -38,6 +37,7 @@ axios.interceptors.response.use(
 Vue.prototype.$http = axios;
 Vue.prototype._ = loadsh;
 Vue.filter('currency', currency);
+Vue.use(ElementUI, { size: 'small', zIndex: 3000 });
 
 /* eslint-disable no-new */
 new Vue({

@@ -1,7 +1,7 @@
 {
-    "name": "imoocmall",
+    "name": "blog",
     "version": "1.0.0",
-    "description": "Imoocmall",
+    "description": "Blog",
     "author": "fanzehua <316679581@qq.com>",
     "private": true,
     "scripts": {
@@ -12,6 +12,7 @@
     },
     "dependencies": {
         "axios": "^0.18.0",
+        "element-ui": "^2.9.1",
         "lodash": "^4.17.11",
         "vue": "^2.5.2",
         "vue-infinite-scroll": "^2.0.2",
@@ -33,6 +34,8 @@
         "chalk": "^2.0.1",
         "copy-webpack-plugin": "^4.0.1",
         "css-loader": "^0.28.0",
+        "node-sass": "^4.12.0",
+        "sass-loader": "^7.1.0",
         "eslint": "^4.15.0",
         "eslint-config-standard": "^10.2.1",
         "eslint-friendly-formatter": "^3.0.0",

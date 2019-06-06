@@ -1,5 +1,5 @@
 <template>
-  <div>简历</div>
+  <div class>工具</div>
 </template>
 
 <script>

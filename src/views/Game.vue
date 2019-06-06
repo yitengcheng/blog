@@ -1,5 +1,5 @@
 <template>
-  <div>简历</div>
+  <div class>游戏</div>
 </template>
 
 <script>
