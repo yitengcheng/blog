@@ -1,6 +1,6 @@
-# imoocmall
+# Blog
 
-> Imoocmall
+> Blog
 
 ## Build Setup
 
