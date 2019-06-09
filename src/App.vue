@@ -1,7 +1,7 @@
 <template>
   <el-container id="app">
     <el-aside width="150px">
-      <Header></Header>
+      <SideBar></SideBar>
     </el-aside>
     <el-main>
       <router-view class="contain"></router-view>
@@ -10,10 +10,10 @@
 </template>
 
 <script>
-import Header from './components/Header';
+import SideBar from './components/SideBar';
 export default {
     name: 'App',
-    components: { Header }
+    components: { SideBar }
 };
 </script>
 <style>
