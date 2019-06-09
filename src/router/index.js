@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Home from './../views/Home';
+import Resume from './../views/Resume';
 import Utils from './../views/Utils';
 import Game from './../views/Game';
 
@@ -10,8 +10,8 @@ export default new Router({
     routes: [
         {
             path: '/',
-            name: 'Home',
-            component: Home
+            name: 'Resume',
+            component: Resume
         },
         {
             path: '/utils',
