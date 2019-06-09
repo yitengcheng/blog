@@ -6,7 +6,7 @@
     </div>
     <div class="infoWrraper">
       <div class="leftInfo">
-        <el-image src="../../static/default.png" class="header" fit="fill"></el-image>
+        <el-image src="static/default.png" class="header" fit="fill"></el-image>
         <div class="userInfo">联系方式：13984387205</div>
         <div class="userInfo">地址：贵州省贵阳市乌当区温泉路</div>
         <div class="userInfo">个人主页：http://www.fanzehua.cn</div>

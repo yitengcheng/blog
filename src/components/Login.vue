@@ -2,7 +2,7 @@
   <div>
     <el-button v-if="!user" class="el-icon-user-solid button" type="text" @click="login">未登录</el-button>
     <div class="user" v-else>
-      <el-image :src="user.head ||'../../static/default.png'" class="head"></el-image>
+      <el-image :src="user.head ||'static/default.png'" class="head"></el-image>
       <div class="userName">admin</div>
     </div>
     <showModel

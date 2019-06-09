@@ -15,7 +15,7 @@
       :index="item.path"
     >{{item.title}}</el-menu-item>
     <div class="imageContainer">
-      <el-image src="../../static/rbq.png" fit="contain" class="foot-image"></el-image>
+      <el-image src="static/rbq.png" fit="contain" class="foot-image"></el-image>
     </div>
   </el-menu>
 </template>
