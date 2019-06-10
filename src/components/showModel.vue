@@ -1,10 +1,10 @@
 <template>
-  <el-dialog :title="title" :visible="dialogVisible" @close="closeModel">
+  <el-dialog :title="title || '提示'" :visible="dialogVisible" @close="closeModel">
     <div class="wrap">
       <slot name="content"></slot>
     </div>
     <div slot="footer">
-      <el-button @click="closeModel">{{cancel || '取消'}}</el-button>
+      <el-button @click="doCancel">{{cancel || '取消'}}</el-button>
       <el-button type="primary" @click="doConfirm">{{confirm||'确定'}}</el-button>
     </div>
   </el-dialog>
@@ -15,6 +15,9 @@ export default {
     methods: {
         closeModel () {
             this.$emit('close');
+        },
+        doCancel () {
+            this.$emit('doCancel');
         },
         doConfirm () {
             this.$emit('doConfirm');

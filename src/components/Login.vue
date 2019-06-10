@@ -9,7 +9,9 @@
       title="登录"
       :dialogVisible="modelVisible"
       v-on:close="closeModel"
+      v-on:doCancel="doRegister"
       v-on:doConfirm="doConfirm"
+      cancel="注册"
     >
       <div slot="content">
         <el-form :model="form" class="loginWrapper" :rules="rules">
@@ -56,6 +58,12 @@ export default {
         },
         closeModel () {
             this.modelVisible = false;
+        },
+        doRegister () {
+            this.modelVisible = false;
+            this.$router.push({
+                name: 'Register'
+            });
         },
         doConfirm () {
             this.modelVisible = false;
