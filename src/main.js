@@ -12,6 +12,7 @@ import store from './vuex/index';
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import { currency } from './utils/currency';
+import * as refs from './utils/validation';
 
 Vue.config.productionTip = false;
 Vue.use(VueLazyLoad, {
@@ -36,6 +37,7 @@ axios.interceptors.response.use(
 );
 Vue.prototype.$http = axios;
 Vue.prototype._ = loadsh;
+Vue.prototype.$utils = refs;
 Vue.filter('currency', currency);
 Vue.use(ElementUI, { size: 'small', zIndex: 3000 });
 
