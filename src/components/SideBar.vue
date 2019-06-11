@@ -48,7 +48,6 @@ export default {
 }
 .login {
   display: flex;
-  height: 100px;
   justify-content: center;
   align-items: center;
 }
