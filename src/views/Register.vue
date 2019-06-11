@@ -18,16 +18,16 @@
         <el-input v-model="form.email" autocomplete="off"></el-input>
       </el-form-item>
       <el-form-item label="生日" prop="birthday" class="item">
-        <el-input v-model="form.birthday" autocomplete="off"></el-input>
+        <el-date-picker v-model="form.birthday" type="date" placeholder="选择日期"/>
       </el-form-item>
     </div>
     <el-button type="primary" class="itemBtn" @click="doRegister('form')">注册</el-button>
-    <el-button type="danger" class="itemBtn">重置</el-button>
+    <el-button type="danger" class="itemBtn" @click="reset('form')">重置</el-button>
   </el-form>
 </template>
 
 <script>
-import { mapState, mapMutations } from 'vuex';
+import { mapMutations } from 'vuex';
 export default {
     components: {},
     data () {
@@ -61,11 +61,11 @@ export default {
             rules: {
                 name: [
                     { required: true, message: '请输入用户名称', trigger: 'blur' },
-                    { min: 3, max: 5, message: '长度在 3 到 5 位', trigger: 'blur' }
+                    { min: 3, max: 16, message: '长度在 3 到 16 位', trigger: 'blur' }
                 ],
                 password: [
                     { required: true, message: '请输入密码', trigger: 'blur' },
-                    { min: 3, max: 8, message: '长度在 3 到 8 位', trigger: 'blur' }
+                    { min: 3, max: 16, message: '长度在 3 到 16 位', trigger: 'blur' }
                 ],
                 repassword: [
                     { required: true, validator: validatePass, trigger: 'blur' }
@@ -78,14 +78,17 @@ export default {
                         message: '请输入正确的邮箱地址',
                         trigger: ['blur', 'change']
                     }
+                ],
+                birthday: [
+                    {
+                        type: 'date',
+                        required: true,
+                        message: '请选择日期',
+                        trigger: 'blur'
+                    }
                 ]
             }
         };
-    },
-    computed: {
-        ...mapState({
-            user: state => state.user.user
-        })
     },
     methods: {
         ...mapMutations('user', ['updateUser']),
@@ -96,26 +99,32 @@ export default {
                         let { success, msg, user } = res;
                         if (success) {
                             this.updateUser(user);
+                            this.$router.replace({
+                                path: '/'
+                            });
                         } else {
-                            alert(msg);
+                            this.$alert(msg);
                         }
                     });
                 } else {
-                    alert('请认真核对信息!');
+                    this.$alert('请认真核对信息!');
                 }
             });
+        },
+        reset (formName) {
+            this.$refs[formName].resetFields();
         }
     }
 };
 </script>
-<style lang='scss'>
+<style lang='scss' scoped>
 .contain {
   display: flex;
   flex: 1;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: url("/static/fantasy.jpg");
+  background-image: url("/static/statue.jpg");
   background-repeat: no-repeat;
   background-size: 100%;
 }
