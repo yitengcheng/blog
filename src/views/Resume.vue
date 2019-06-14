@@ -18,7 +18,7 @@
         <div class="experienceTitle">自主创业</div>
         <div class="experienceText">从2014-2015自主创业经营一家桌游卡牌店</div>
         <div class="experienceTitle">开发人员</div>
-        <div class="experienceText">从2017-2019在贵州四面通科技担任网页与手机APP的研发工作</div>
+        <div class="experienceText">从2017-2019在贵州亿隆四面通担任网页与手机APP的研发工作</div>
         <div class="experienceTitle">平台运维</div>
         <div class="experienceText">从2019至今在贵州亿隆智达网络有限公司担任平台运维</div>
         <div class="experience">S K I L L S</div>
@@ -76,11 +76,11 @@ export default {
 }
 .leftInfo {
   display: flex;
+  flex: 1;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-end;
   justify-content: flex-start;
-  padding-right: 20px;
-  margin-left: 220px;
+  padding-right: 50px;
 }
 .header {
   width: 180px;

@@ -124,7 +124,7 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: url("/static/statue.jpg");
+  background-image: url("../../static/statue.jpg");
   background-repeat: no-repeat;
   background-size: 100%;
 }
@@ -138,9 +138,6 @@ export default {
 }
 .item {
   width: 400px;
-  .el-form-item__label {
-    color: #fff;
-  }
 }
 .itemBtn {
   width: 300px;
