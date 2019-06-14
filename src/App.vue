@@ -1,6 +1,6 @@
 <template>
   <el-container id="app">
-    <el-aside width="150px">
+    <el-aside width="120px">
       <SideBar></SideBar>
     </el-aside>
     <el-main>
@@ -13,7 +13,10 @@
 import SideBar from './components/SideBar';
 export default {
     name: 'App',
-    components: { SideBar }
+    components: { SideBar },
+    created () {
+        this.$router.replace('/');
+    }
 };
 </script>
 <style>
