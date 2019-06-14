@@ -38,6 +38,7 @@ axios.interceptors.response.use(
 Vue.prototype.$http = axios;
 Vue.prototype._ = loadsh;
 Vue.prototype.$utils = refs;
+Vue.prototype.$API = 'http://localhost:3000';
 Vue.filter('currency', currency);
 Vue.use(ElementUI, { size: 'small', zIndex: 3000 });
 
