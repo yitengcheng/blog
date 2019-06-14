@@ -5,7 +5,7 @@
       class="el-icon-user-solid button"
       type="text"
       @click="modelVisible = true"
-    >未登录</el-button>
+    >登录</el-button>
     <div class="user" v-else>
       <el-image :src="user.head ||'static/default.png'" class="head"></el-image>
       <div class="userName">{{user.name}}</div>
@@ -121,7 +121,8 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: 16px;
+  font-size: 14px;
+  line-height: 20px;
 }
 .user {
   display: flex;
@@ -138,6 +139,7 @@ export default {
 .userName {
   color: #409eff;
   margin-bottom: 10px;
+  font-size: 14px;
 }
 .loginWrapper {
   display: flex;

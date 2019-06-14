@@ -29,7 +29,7 @@ export default {
             activeIndex: '/',
             menuList: [
                 { path: '/', title: '简历' },
-                { path: '/utils', title: '工具' },
+                { path: '/cssPhoto', title: 'CSS动画' },
                 { path: '/game', title: '游戏' }
             ]
         };
@@ -42,9 +42,12 @@ export default {
   flex: 1;
   flex-direction: column;
   height: 100%;
+  border-right: 1px solid #545c64;
+  overflow: hidden;
 }
 .menuItem {
   text-align: center;
+  font-size: 12px;
 }
 .login {
   display: flex;
