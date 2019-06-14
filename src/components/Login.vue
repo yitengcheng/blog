@@ -26,12 +26,17 @@
       cancel="注册"
     >
       <div slot="content">
-        <el-form :model="form" ref="login" class="loginWrapper" :rules="rules">
+        <el-form :model="userInfo" ref="login" class="loginWrapper" :rules="rules">
           <el-form-item label="用户名" label-width="70px" class="loginItem" prop="name">
-            <el-input v-model="form.name" autocomplete="off"></el-input>
+            <el-input @change="onChangeName" v-model="userInfo.name" autocomplete="off"></el-input>
           </el-form-item>
           <el-form-item label="密码" label-width="70px" class="loginItem" prop="password">
-            <el-input show-password v-model="form.password" autocomplete="off"></el-input>
+            <el-input
+              @change="onChangePassword"
+              show-password
+              v-model="userInfo.password"
+              autocomplete="off"
+            ></el-input>
           </el-form-item>
         </el-form>
       </div>
@@ -59,10 +64,12 @@ export default {
         return {
             modelVisible: false,
             logoutVisible: false,
-            form: {
+            userInfo: {
                 name: '',
                 password: ''
             },
+            name: '',
+            password: '',
             rules: {
                 name: [
                     { required: true, message: '请输入用户名称', trigger: 'blur' },
@@ -93,12 +100,18 @@ export default {
                 name: 'Register'
             });
         },
+        onChangeName () {
+            this.name = this.userInfo.name;
+        },
+        onChangePassword () {
+            this.password = this.userInfo.password;
+        },
         doConfirm () {
             this.closeModel();
             this.$http
                 .post('/api/login', {
-                    name: this.form.name,
-                    password: this.form.password
+                    name: this.name,
+                    password: this.password
                 })
                 .then(res => {
                     let { success, msg, user } = res;
