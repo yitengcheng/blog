@@ -4,6 +4,7 @@ import Resume from './../views/Resume';
 import CSSCartToon from './../views/CSSCartToon';
 import Game from './../views/Game';
 import Register from './../views/Register';
+import UserDetail from './../views/UserDetail';
 import CSSPhoto from './../views/CSSCartToon/CSSPhoto';
 import WeatherEffects from './../views/CSSCartToon/WeatherEffects';
 import Birds from './../views/CSSCartToon/Birds';
@@ -60,6 +61,11 @@ export default new Router({
             path: '/register',
             name: 'Register',
             component: Register
+        },
+        {
+            path: '/userDetail',
+            name: 'UserDetail',
+            component: UserDetail
         }
 
     ]
