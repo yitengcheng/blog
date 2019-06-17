@@ -12,7 +12,8 @@ import store from './vuex/index';
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import { currency } from './utils/currency';
-import * as refs from './utils/validation';
+import * as utils from './utils/validation';
+import moment from 'moment';
 
 Vue.config.productionTip = false;
 Vue.use(VueLazyLoad, {
@@ -37,8 +38,9 @@ axios.interceptors.response.use(
 );
 Vue.prototype.$http = axios;
 Vue.prototype._ = loadsh;
-Vue.prototype.$utils = refs;
+Vue.prototype.$utils = utils;
 Vue.prototype.$API = 'http://localhost:3000';
+Vue.prototype.$moment = moment;
 Vue.filter('currency', currency);
 Vue.use(ElementUI, { size: 'small', zIndex: 3000 });
 

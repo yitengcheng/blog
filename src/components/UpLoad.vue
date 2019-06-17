@@ -16,10 +16,14 @@
 <script>
 export default {
     name: 'upload',
+    props: ['img'],
     data () {
         return {
             imageUrl: ''
         };
+    },
+    mounted () {
+        this.imageUrl = this.img;
     },
     methods: {
         upload () {
@@ -33,6 +37,7 @@ export default {
             formData.append('image', file.raw);
             this.$http.post('/api/upload', formData, headerConfig).then(res => {
                 let { success, url } = res;
+                this.$emit('imageUrl', this.$API + url);
                 this.imageUrl = this.$API + url;
             });
         }

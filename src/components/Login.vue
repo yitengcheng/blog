@@ -7,8 +7,11 @@
       @click="modelVisible = true"
     >登录</el-button>
     <div class="user" v-else>
-      <el-image :src="user.head ||'static/default.png'" class="head"></el-image>
-      <div class="userName">{{user.name}}</div>
+      <div class="user" @click="toUserDetail">
+        <el-image :src="user.head ||'static/default.png'" class="head"></el-image>
+        <div class="userName">{{user.name}}</div>
+      </div>
+
       <el-button
         @click="logoutVisible = true"
         size="mini"
@@ -92,6 +95,7 @@ export default {
         closeModel () {
             this.modelVisible = false;
             this.logoutVisible = false;
+            this.modifyVisible = false;
             this.$refs.login.resetFields();
         },
         doRegister () {
@@ -122,9 +126,17 @@ export default {
                     }
                 });
         },
+        toUserDetail () {
+            this.$router.push({
+                name: 'UserDetail'
+            });
+        },
         logout () {
             this.updateUser('');
             this.closeModel();
+            this.$router.replace({
+                path: '/'
+            });
         }
     }
 };
@@ -166,5 +178,12 @@ export default {
   background-color: rgba(245, 108, 108, 1);
   color: #fff;
   border-color: rgba(0, 0, 0, 0);
+}
+.modify {
+  display: flex;
+  font-size: 12px;
+  justify-content: flex-end;
+  padding-right: 180px;
+  color: #666;
 }
 </style>
