@@ -30,7 +30,7 @@ export default {
             menuList: [
                 { path: '/', title: '简历' },
                 { path: '/cssPhoto', title: 'CSS动画' },
-                { path: '/game', title: '游戏' }
+                { path: '/calendar', title: '日历' }
             ]
         };
     }

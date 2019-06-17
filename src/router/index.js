@@ -2,7 +2,7 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import Resume from './../views/Resume';
 import CSSCartToon from './../views/CSSCartToon';
-import Game from './../views/Game';
+import Calendar from './../views/Calendar';
 import Register from './../views/Register';
 import UserDetail from './../views/UserDetail';
 import CSSPhoto from './../views/CSSCartToon/CSSPhoto';
@@ -53,9 +53,9 @@ export default new Router({
             ]
         },
         {
-            path: '/game',
-            name: 'Game',
-            component: Game
+            path: '/calendar',
+            name: 'Calendar',
+            component: Calendar
         },
         {
             path: '/register',

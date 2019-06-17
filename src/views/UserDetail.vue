@@ -174,6 +174,7 @@ export default {
         },
         closeModel () {
             this.modifyVisible = false;
+            this.$refs['modifyPwd'].resetFields();
         },
         modifyPwd () {
             if (this.modifyVisible) {
@@ -196,6 +197,7 @@ export default {
                                     });
                                 } else {
                                     this.modifyVisible = false;
+                                    this.$refs['modifyPwd'].resetFields();
                                     this.$alert(msg);
                                 }
                             });
