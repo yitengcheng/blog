@@ -10,7 +10,7 @@
         <p
           v-for="(item,index) in wea"
           :key="index"
-        >{{dataFormat(data.day) === item.day ? item.minTemp + '/' +item.maxTemp : ''}}</p>
+        >{{dataFormat(data.day) === item.day ? item.minTemp + '°C/' +item.maxTemp + '°C' : ''}}</p>
       </template>
     </el-calendar>
   </div>
