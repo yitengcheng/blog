@@ -73,6 +73,7 @@ export default {
 .infoWrraper {
   display: flex;
   flex: 1;
+  margin: 0px 10px;
 }
 .leftInfo {
   display: flex;
@@ -119,6 +120,7 @@ export default {
 .skill {
   height: 60px;
   width: 60px;
+  font-size: 16px;
   text-align: center;
   line-height: 60px;
   border: 1px solid #333;

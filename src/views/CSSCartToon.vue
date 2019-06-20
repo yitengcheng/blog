@@ -36,7 +36,17 @@ export default {
         };
     },
     computed: {},
-    methods: {}
+    methods: {},
+    mounted () {
+        let flag = window.screen.width < 600;
+        if (flag) {
+            this.menuList.splice(0, 1);
+            this.activeIndex = '/weatherEffects';
+            this.$router.push({
+                path: '/weatherEffects'
+            });
+        }
+    }
 };
 </script>
 <style lang='scss' scoped>
