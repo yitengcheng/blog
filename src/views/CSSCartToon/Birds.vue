@@ -41,11 +41,9 @@ export default {
   z-index: 1;
   position: relative;
   overflow: hidden;
-  display: flex;
   align-items: center;
   justify-content: center;
-  // min-height: 100vh;
-  min-height: 35rem;
+  min-height: 35px;
   background-image: linear-gradient(
       to bottom,
       rgba(255, 168, 76, 0.6) 0%,
