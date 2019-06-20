@@ -11,7 +11,7 @@
     <div class="inputWarrper">
       <el-input
         type="textarea"
-        placeholder="请输入需要标注的文字"
+        placeholder="请输入需要标注的文本"
         v-model="searchText"
         maxlength="64"
         show-word-limit
@@ -27,15 +27,27 @@
         icon="el-icon-search"
       >标注</el-button>
     </div>
+    <div class="tableWarrper" v-show="flag">
+      <Table :data="dataArray" :title="titleArray"></Table>
+    </div>
   </div>
 </template>
 
 <script>
+import Table from './../components/Table';
 export default {
-    components: {},
+    components: { Table },
     data () {
         return {
-            searchText: ''
+            searchText: '',
+            dataArray: [],
+            titleArray: [
+                { concept: '标签' },
+                { desc: '描述' },
+                { mention: '标注主体' },
+                { _bdbkUrl: '百度链接' }
+            ],
+            flag: false
         };
     },
     computed: {},
@@ -47,7 +59,12 @@ export default {
                     .then(res => {
                         let { success, msg, data } = res;
                         if (success) {
-                            console.log(data);
+                            let dt = data.entity_annotation;
+                            dt.forEach(item => {
+                                item.concept = this._.values(item.concept).join(',');
+                            });
+                            this.dataArray = dt;
+                            this.flag = true;
                         } else {
                             this.$alert(msg);
                         }
@@ -95,5 +112,9 @@ export default {
 }
 .markBtn {
   height: 45px;
+}
+.tableWarrper {
+  width: 80%;
+  margin-bottom: 10%;
 }
 </style>
