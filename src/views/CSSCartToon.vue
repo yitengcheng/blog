@@ -42,7 +42,7 @@ export default {
         if (flag) {
             this.menuList.splice(0, 1);
             this.activeIndex = '/weatherEffects';
-            this.$router.push({
+            this.$router.replace({
                 path: '/weatherEffects'
             });
         }

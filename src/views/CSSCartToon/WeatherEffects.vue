@@ -52,7 +52,7 @@ export default {
   display: flex;
   flex: 1;
   flex-direction: column;
-  padding-top: 50px;
+  padding-top: 60px;
   padding-bottom: 60px;
   background-color: #000;
 }
@@ -61,7 +61,7 @@ export default {
   position: relative;
 }
 .rainy {
-  margin-top: 100px;
+  margin-top: 2rem;
 }
 .sun {
   width: 2.5em;
@@ -186,7 +186,7 @@ export default {
   }
 }
 .cloudy {
-  margin-top: 100px;
+  margin-top: 3rem;
 }
 .cloud {
   position: absolute;
@@ -234,7 +234,7 @@ export default {
   }
 }
 .flurries {
-  margin-top: 100px;
+  margin-top: 2rem;
 }
 .snow {
   position: absolute;
@@ -316,7 +316,7 @@ export default {
   }
 }
 .thunder-storm {
-  margin-top: 100px;
+  margin-top: 3rem;
 }
 .cloud {
   position: absolute;
@@ -424,7 +424,8 @@ export default {
   }
 }
 .sun-shower {
-  margin-top: 150px;
+  margin-top: 4rem;
+  margin-bottom: 1rem;
 }
 .cloud + .sun {
   margin: -2em 1em;
