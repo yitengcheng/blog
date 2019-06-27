@@ -80,6 +80,9 @@ export default {
             });
         }
     },
+    mounted () {
+        this.refeshList(this.userInfo);
+    },
     watch: {
         userInfo (val, oldVal) {
             this.refeshList(val);

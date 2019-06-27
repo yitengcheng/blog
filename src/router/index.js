@@ -6,6 +6,8 @@ import Calendar from './../views/Calendar';
 import Register from './../views/Register';
 import UserDetail from './../views/UserDetail';
 import Knowledge from './../views/Knowledge';
+import ImageList from './../views/ImageList';
+import ImageDetail from './../views/ImageDetail';
 import CSSPhoto from './../views/CSSCartToon/CSSPhoto';
 import WeatherEffects from './../views/CSSCartToon/WeatherEffects';
 import Birds from './../views/CSSCartToon/Birds';
@@ -72,6 +74,16 @@ export default new Router({
             path: '/knowledge',
             name: 'Knowledge',
             component: Knowledge
+        },
+        {
+            path: '/imageList',
+            name: 'ImageList',
+            component: ImageList
+        },
+        {
+            path: '/imageDetail',
+            name: 'ImageDetail',
+            component: ImageDetail
         }
 
     ]
