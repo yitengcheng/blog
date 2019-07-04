@@ -45,5 +45,6 @@ export default {
   display: flex;
   flex: 1;
   min-height: 100%;
+  min-width: 100%;
 }
 </style>
