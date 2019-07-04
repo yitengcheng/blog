@@ -8,13 +8,35 @@
     :router="true"
   >
     <Login class="login"></Login>
-    <el-menu-item
-      class="menuItem"
-      v-for="(item,index) in menuList"
-      :key="index"
-      :index="item.path"
-      v-show="(item.showFlag)"
-    >{{item.title}}</el-menu-item>
+    <div v-for="(item,index) in menuList" :key="index">
+      <el-menu-item
+        v-if="!item.childern"
+        class="menuItem"
+        :index="item.path"
+        v-show="(item.showFlag)"
+      >{{item.title}}</el-menu-item>
+      <el-submenu v-else :index="index.toString()">
+        <template slot="title">
+          <span class="menuItem">{{item.title}}</span>
+        </template>
+        <div v-for="(object,i) in item.childern" :key="i">
+          <el-menu-item
+            :index="object.path"
+            v-if="!object.childern"
+            class="menuChildrenItem"
+          >{{object.title}}</el-menu-item>
+          <el-menu-item-group v-else :title="object.title" class="menuChildrenItem">
+            <el-menu-item
+              :index="chirldItem.path"
+              class="menuChildrenItem"
+              v-for="(chirldItem,j) in object.childern"
+              :key="j"
+            >{{chirldItem.title}}</el-menu-item>
+          </el-menu-item-group>
+        </div>
+      </el-submenu>
+    </div>
+
     <div class="imageContainer">
       <el-image src="static/rbq.png" fit="contain" class="foot-image"></el-image>
     </div>
@@ -59,6 +81,38 @@ export default {
                     title: '图片浏览',
                     showFlag: false,
                     hasJudge: true
+                },
+                {
+                    title: '订单管理',
+                    showFlag: true,
+                    hasJudge: false,
+                    childern: [
+                        {
+                            title: '订单添加',
+                            showFlag: true,
+                            hasJudge: false,
+                            childern: [
+                                {
+                                    path: '/batchAdd',
+                                    title: '批次添加',
+                                    showFlag: true,
+                                    hasJudge: false
+                                },
+                                {
+                                    path: '/orderAdd',
+                                    title: '订单添加',
+                                    showFlag: true,
+                                    hasJudge: false
+                                },
+                                {
+                                    path: '/orderAdd',
+                                    title: '批量添加',
+                                    showFlag: true,
+                                    hasJudge: false
+                                }
+                            ]
+                        }
+                    ]
                 }
             ]
         };
@@ -117,5 +171,8 @@ export default {
   width: 150px;
   height: 150px;
   margin-bottom: 20px;
+}
+.menuChildrenItem {
+  font-size: 12px;
 }
 </style>
