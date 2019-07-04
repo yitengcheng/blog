@@ -20,6 +20,11 @@ export default {
         return {
             input: '',
             pickerOptions: {
+                disabledDate (time) {
+                    return (
+                        time.getTime() < new Date(new Date().toLocaleDateString()).getTime()
+                    );
+                },
                 shortcuts: [
                     {
                         text: '今天',
