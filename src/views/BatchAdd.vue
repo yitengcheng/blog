@@ -244,6 +244,7 @@ export default {
                 carInfo: '',
                 remark: ''
             };
+            this.refresh = false;
             this.hasAction = false;
         }
     }
