@@ -32,7 +32,7 @@ export default {
     mounted () {
         let image = this.$route.params.image;
         this.image = image;
-        this.totalCount = image.img_url.length;
+        this.totalCount = image.file_path.length;
     },
     methods: {
         goBack () {

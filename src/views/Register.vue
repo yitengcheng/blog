@@ -18,7 +18,7 @@
         <el-input v-model="form.email" autocomplete="off"></el-input>
       </el-form-item>
       <el-form-item label="生日" prop="birthday" class="item">
-        <el-date-picker v-model="form.birthday" type="date" placeholder="选择日期"/>
+        <el-date-picker v-model="form.birthday" type="date" placeholder="选择日期" />
       </el-form-item>
     </div>
     <el-button type="primary" class="itemBtn" @click="doRegister('form')">注册</el-button>
@@ -121,12 +121,13 @@ export default {
 .contain {
   display: flex;
   flex: 1;
+  height: 100%;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background-image: url("../../static/statue.jpg");
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: cover;
 }
 .title {
   color: #333;

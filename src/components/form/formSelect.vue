@@ -1,32 +1,19 @@
 <template>
   <el-form-item :label="label" :prop="value">
-    <el-input
-      v-model="input"
-      :type="type"
-      :rows="rows"
-      @change="onChange"
-      :placeholder="place"
-      :show-password="showPassword"
-      :maxlength="maxlength"
-    >
-      <template v-if="append" slot="append">{{append}}</template>
-    </el-input>
+    <el-select class="select" v-model="input" :placeholder="place" @change="onChange">
+      <el-option
+        v-for="(option,index) in options"
+        :key="index"
+        :label="option.label"
+        :value="option.value"
+      ></el-option>
+    </el-select>
   </el-form-item>
 </template>
 
 <script>
 export default {
-    props: [
-        'form',
-        'label',
-        'value',
-        'placeholder',
-        'showPassword',
-        'type',
-        'rows',
-        'maxlength',
-        'append'
-    ],
+    props: ['form', 'label', 'value', 'options', 'placeholder'],
     watch: {
         input: {
             handler (newValue, oldValue) {
@@ -48,7 +35,7 @@ export default {
     },
     mounted () {
         this.input = this.form[this.value] || '';
-        this.place = this.placeholder || '请输入' + this.label;
+        this.place = this.placeholder || '请选择' + this.label;
     },
     methods: {
         onChange (value) {
@@ -62,4 +49,7 @@ export default {
 };
 </script>
 <style lang='scss' scoped>
+.select {
+  width: 100%;
+}
 </style>
