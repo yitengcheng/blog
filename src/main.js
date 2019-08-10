@@ -3,8 +3,8 @@
 import Vue from 'vue';
 import App from './App';
 import router from './router';
-import './assets/css/base.css';
 import VueLazyLoad from 'vue-lazyload';
+import './assets/scss/base.scss';
 import infiniteScroll from 'vue-infinite-scroll';
 import axios from 'axios';
 import loadsh from 'lodash';
@@ -40,6 +40,7 @@ Vue.prototype.$http = axios;
 Vue.prototype._ = loadsh;
 Vue.prototype.$utils = utils;
 Vue.prototype.$API = 'http://localhost:3000';
+// Vue.prototype.$API = 'http://www.fanzehua.cn';
 Vue.prototype.$moment = moment;
 Vue.filter('currency', currency);
 Vue.use(ElementUI, { size: 'small', zIndex: 3000 });
