@@ -33,7 +33,8 @@ module.exports = {
         host: '0.0.0.0',
         port: 8080,
         https: false,
-        hotOnly: true,
+        hotOnly: false,
+        disableHostCheck: true,
         proxy: {//反向代理的方式解决跨域
             '/api': {
                 target: 'http://192.168.0.118:3000'
