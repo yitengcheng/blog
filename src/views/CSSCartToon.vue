@@ -22,31 +22,29 @@
 
 <script>
 export default {
-    components: {},
-    data () {
-        return {
-            activeIndex: '/cssPhoto',
-            menuList: [
-                { path: '/cssPhoto', title: '图片动画特效（相框）' },
-                { path: '/weatherEffects', title: '天气动画特效' },
-                { path: '/birds', title: '飞鸟' },
-                { path: '/dragon', title: '恐龙' },
-                { path: '/storeLoading', title: '商店' }
-            ]
-        };
-    },
-    computed: {},
-    methods: {},
-    mounted () {
-        let flag = window.screen.width < 600;
-        if (flag) {
-            this.menuList.splice(0, 1);
-            this.activeIndex = '/weatherEffects';
-            this.$router.replace({
-                path: '/weatherEffects'
-            });
-        }
+  components: {},
+  data() {
+    return {
+      activeIndex: "/cssPhoto",
+      menuList: [
+        { path: "/cssPhoto", title: "图片动画特效（相框）" },
+        { path: "/weatherEffects", title: "天气动画特效" },
+        { path: "/storeLoading", title: "商店" }
+      ]
+    };
+  },
+  computed: {},
+  methods: {},
+  mounted() {
+    let flag = window.screen.width < 600;
+    if (flag) {
+      this.menuList.splice(0, 1);
+      this.activeIndex = "/weatherEffects";
+      this.$router.replace({
+        path: "/weatherEffects"
+      });
     }
+  }
 };
 </script>
 <style lang='scss' scoped>

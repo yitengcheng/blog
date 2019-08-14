@@ -6,7 +6,7 @@
     </div>
     <div class="infoWrraper">
       <div class="leftInfo">
-        <el-image src="static/default.png" class="header" fit="fill"></el-image>
+        <el-image :src="headImg" class="header" fit="fill"></el-image>
         <div class="userInfo">联系方式：13984387205</div>
         <div class="userInfo">地址：贵州省贵阳市乌当区温泉路</div>
         <div class="userInfo">个人主页：http://www.fanzehua.cn</div>
@@ -43,40 +43,40 @@
       <p class="pastProjectsText">
         <span style="marginLeft:40px"></span>
         负责司机端，客户端，店面端页面搭建与业务逻辑编写，集成其他第三方库，带领小组攻克技术难点。
-        负责审核小组成员代码。负责项目中所有公用代码封装及优化，配合后端完成项目中测试环境与线上环境的数据完整性
+        负责审核小组成员代码。负责项目中所有公用代码封装及优化，配合后端完成项目中测试环境与线上环境的数据完整性。
       </p>
       <p class="pastProjectsText">工作业绩：</p>
       <p class="pastProjectsText">
-        <span style="marginLeft:40px"></span>使用reactNative及周边技术栈对项目进行编写，提高项目可维护性
+        <span style="marginLeft:40px"></span>使用reactNative及周边技术栈对项目进行编写，提高项目可维护性。
       </p>
       <p class="pastProjectsTitle">四面通平台网页端</p>
       <p class="pastProjectsText">工作职责：</p>
       <p class="pastProjectsText">
-        <span style="marginLeft:40px"></span>负责客户端，店面端页面搭建与业务逻辑编写
+        <span style="marginLeft:40px"></span>负责客户端，店面端页面搭建与业务逻辑编写。
       </p>
       <p class="pastProjectsText">工作业绩：</p>
       <p class="pastProjectsText">
-        <span style="marginLeft:40px"></span>使用react.js及周边技术栈对项目进行编写，学会了使用react的相关知识与语法
+        <span style="marginLeft:40px"></span>使用react.js及周边技术栈对项目进行编写，学会了使用react的相关知识与语法。
       </p>
       <p class="pastProjectsTitle">四面通平台小程序</p>
       <p class="pastProjectsText">工作职责：</p>
       <p class="pastProjectsText">
-        <span style="marginLeft:40px"></span>负责业务员小程序页面搭建与业务逻辑编写
+        <span style="marginLeft:40px"></span>负责业务员小程序页面搭建与业务逻辑编写。
       </p>
       <p class="pastProjectsText">工作业绩：</p>
       <p class="pastProjectsText">
-        <span style="marginLeft:40px"></span>使用微信小程序原生语言对项目进行编写，学会了微信小程序的相关内容
+        <span style="marginLeft:40px"></span>使用微信小程序原生语言对项目进行编写，学会了微信小程序的相关内容。
       </p>
       <p class="pastProjectsText">工作业绩：</p>
       <p class="pastProjectsText">
-        <span style="marginLeft:40px"></span>使用react.js及周边技术栈对项目进行编写，学会了使用react的相关知识与语法
+        <span style="marginLeft:40px"></span>使用react.js及周边技术栈对项目进行编写，学会了使用react的相关知识与语法。
       </p>
       <p class="pastProjectsTitle">亿隆集团OA办公系统</p>
       <p class="pastProjectsText">工作职责：</p>
       <p class="pastProjectsText">
         <span style="marginLeft:40px"></span>
         负责项目前端页面搭建与业务逻辑编写。负责项目技术选型，搭建项目框架，集成第三方库。
-        审核小组成员代码。负责项目中所有公用代码封装及优化。负责服务端的逻辑编写，数据库搭建。负责项目部署与实施。负责与其他部门沟通，分析不同部门业务需求
+        审核小组成员代码。负责项目中所有公用代码封装及优化。负责服务端的逻辑编写，数据库搭建。负责项目部署与实施。负责与其他部门沟通，分析不同部门业务需求。
       </p>
       <p class="pastProjectsText">工作业绩：</p>
       <p class="pastProjectsText">
@@ -84,7 +84,7 @@
         使用Vue及周边技术栈完成项目，前后端分离提高前后端开发效率。
         借助Vuex存储数据的状态，划分model数据使项目数据流更清晰。
         接入第三方excel生成工具实现项目表格导出。
-        封装可复用组件及功能函数，方便重复使用
+        封装可复用组件及功能函数，方便重复使用。
       </p>
     </div>
   </div>
@@ -92,12 +92,14 @@
 
 <script>
 export default {
-    components: {},
-    data () {
-        return {};
-    },
-    computed: {},
-    methods: {}
+  components: {},
+  data() {
+    return {
+      headImg: require("@/assets/default.png")
+    };
+  },
+  computed: {},
+  methods: {}
 };
 </script>
 <style lang='scss' scoped>

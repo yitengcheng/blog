@@ -1,10 +1,8 @@
-// The Vue build version to load with the `import` command
-// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
+/* eslint-disable no-console */
+import './assets/scss/base.scss';
 import Vue from 'vue';
 import App from './App';
-import router from './router';
 import VueLazyLoad from 'vue-lazyload';
-import './assets/scss/base.scss';
 import infiniteScroll from 'vue-infinite-scroll';
 import axios from 'axios';
 import loadsh from 'lodash';
@@ -14,6 +12,7 @@ import 'element-ui/lib/theme-chalk/index.css';
 import { currency } from './utils/currency';
 import * as utils from './utils/validation';
 import moment from 'moment';
+import router from './router';
 
 Vue.config.productionTip = false;
 Vue.use(VueLazyLoad, {
@@ -39,17 +38,14 @@ axios.interceptors.response.use(
 Vue.prototype.$http = axios;
 Vue.prototype._ = loadsh;
 Vue.prototype.$utils = utils;
-Vue.prototype.$API = 'http://localhost:3000';
-// Vue.prototype.$API = 'http://www.fanzehua.cn';
+// Vue.prototype.$API = 'http://localhost:3000';
+Vue.prototype.$API = 'http://www.fanzehua.cn';
 Vue.prototype.$moment = moment;
 Vue.filter('currency', currency);
 Vue.use(ElementUI, { size: 'small', zIndex: 3000 });
 
-/* eslint-disable no-new */
 new Vue({
-    el: '#app',
     router,
     store,
-    components: { App },
-    template: '<App/>'
-});
+    render: h => h(App)
+}).$mount('#app')

@@ -1,7 +1,7 @@
 <template>
   <div class="box">
     <!-- 图片 -->
-    <el-image src="static/women.jpg" alt fit="contain"/>
+    <el-image :src="img" alt fit="contain" />
     <!-- 内容 -->
     <div class="box-inner-content">
       <h3 class="title">FanZehua</h3>
@@ -9,11 +9,20 @@
     </div>
   </div>
 </template>
+<script>
+export default {
+  data() {
+    return {
+      img: require("@/assets/women.jpg")
+    };
+  }
+};
+</script>
 <style lang='scss' scoped>
 .box {
   margin: 100px auto;
   width: 300px;
-  height: 300px;
+  height: 500px;
   overflow: hidden;
   position: relative;
 }

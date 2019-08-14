@@ -9,12 +9,12 @@
     </transition>
     <el-container>
       <el-scrollbar style="width:100%;height:100%;backgroundColor:#fff">
+        <el-button
+          @click="barFlag"
+          class="showBarBtn"
+          :icon="showBar?'el-icon-d-arrow-left':'el-icon-d-arrow-right'"
+        />
         <el-main class="main">
-          <el-button
-            @click="barFlag"
-            class="showBarBtn"
-            :icon="showBar?'el-icon-d-arrow-left':'el-icon-d-arrow-right'"
-          />
           <router-view class="mainContain"></router-view>
         </el-main>
       </el-scrollbar>
@@ -23,38 +23,38 @@
 </template>
 
 <script>
-import SideBar from './components/SideBar';
+import SideBar from "./components/SideBar";
 export default {
-    name: 'App',
-    components: { SideBar },
-    created () {
-        this.$router.replace('/');
-        // 在页面加载时读取sessionStorage里的状态信息
-        if (sessionStorage.getItem('store')) {
-            this.$store.replaceState(
-                Object.assign(
-                    {},
-                    this.$store.state,
-                    JSON.parse(sessionStorage.getItem('store'))
-                )
-            );
-        }
-
-        // 在页面刷新时将vuex里的信息保存到sessionStorage里
-        window.addEventListener('beforeunload', () => {
-            sessionStorage.setItem('store', JSON.stringify(this.$store.state));
-        });
-    },
-    data () {
-        return {
-            showBar: true
-        };
-    },
-    methods: {
-        barFlag () {
-            this.showBar = !this.showBar;
-        }
+  name: "App",
+  components: { SideBar },
+  created() {
+    this.$router.replace("/");
+    // 在页面加载时读取sessionStorage里的状态信息
+    if (sessionStorage.getItem("store")) {
+      this.$store.replaceState(
+        Object.assign(
+          {},
+          this.$store.state,
+          JSON.parse(sessionStorage.getItem("store"))
+        )
+      );
     }
+
+    // 在页面刷新时将vuex里的信息保存到sessionStorage里
+    window.addEventListener("beforeunload", () => {
+      sessionStorage.setItem("store", JSON.stringify(this.$store.state));
+    });
+  },
+  data() {
+    return {
+      showBar: true
+    };
+  },
+  methods: {
+    barFlag() {
+      this.showBar = !this.showBar;
+    }
+  }
 };
 </script>
 <style lang="scss" >
@@ -65,12 +65,12 @@ export default {
   height: 100%;
 }
 .main {
+  height: 100%;
   margin: 0;
-  padding: 0;
-  overflow: hidden;
+  padding: 0 !important;
 }
 .el-scrollbar__wrap {
-  overflow-x: hidden;
+  overflow-x: hidden !important;
   margin-bottom: 0px !important;
 }
 .sidebar-container {
@@ -78,13 +78,13 @@ export default {
   background-color: #545c64;
 }
 .showBarBtn {
-  padding: 0;
-  width: 15px;
-  height: 50px;
-  background-color: gray;
-  color: #fff;
-  position: absolute;
-  top: 50%;
+  padding: 0 !important;
+  width: 15px !important;
+  height: 50px !important;
+  background-color: gray !important;
+  color: #fff !important;
+  position: absolute !important;
+  top: 50% !important;
 }
 .sideBar-enter,
 .sideBar-leave-to {

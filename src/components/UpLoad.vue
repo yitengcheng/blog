@@ -8,40 +8,40 @@
       :http-request="upload"
       multiple
     >
-      <img v-if="imageUrl" :src="imageUrl" class="avatar">
+      <img v-if="imageUrl" :src="imageUrl" class="avatar" />
       <i v-else class="el-icon-plus avatar-uploader-icon"></i>
     </el-upload>
   </div>
 </template>
 <script>
 export default {
-    name: 'upload',
-    props: ['img'],
-    data () {
-        return {
-            imageUrl: ''
-        };
-    },
-    mounted () {
-        this.imageUrl = this.img;
-    },
-    methods: {
-        upload () {
-            const formData = new FormData();
-            const uploadFiles = this.$refs.upload.uploadFiles;
-            const fileIndex = uploadFiles.length - 1;
-            const file = uploadFiles[fileIndex];
-            const headerConfig = {
-                headers: { 'Content-Type': 'multipart/form-data' }
-            };
-            formData.append('image', file.raw);
-            this.$http.post('/api/upload', formData, headerConfig).then(res => {
-                let { success, url } = res;
-                this.$emit('imageUrl', this.$API + url);
-                this.imageUrl = this.$API + url;
-            });
-        }
+  name: "upload",
+  props: ["img"],
+  data() {
+    return {
+      imageUrl: ""
+    };
+  },
+  mounted() {
+    this.imageUrl = this.img;
+  },
+  methods: {
+    upload() {
+      const formData = new FormData();
+      const uploadFiles = this.$refs.upload.uploadFiles;
+      const fileIndex = uploadFiles.length - 1;
+      const file = uploadFiles[fileIndex];
+      const headerConfig = {
+        headers: { "Content-Type": "multipart/form-data" }
+      };
+      formData.append("image", file.raw);
+      this.$http.post("/api/upload", formData, headerConfig).then(res => {
+        let { url } = res;
+        this.$emit("imageUrl", this.$API + url);
+        this.imageUrl = this.$API + url;
+      });
     }
+  }
 };
 </script>
 <style lang="scss" scoped>

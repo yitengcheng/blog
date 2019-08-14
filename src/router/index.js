@@ -10,8 +10,6 @@ import ImageList from './../views/ImageList';
 import ImageDetail from './../views/ImageDetail';
 import CSSPhoto from './../views/CSSCartToon/CSSPhoto';
 import WeatherEffects from './../views/CSSCartToon/WeatherEffects';
-import Birds from './../views/CSSCartToon/Birds';
-import Dragon from './../views/CSSCartToon/Dragon';
 import StoreLoading from './../views/CSSCartToon/StoreLoading';
 
 Vue.use(Router);
@@ -38,16 +36,6 @@ export default new Router({
                     path: '/weatherEffects',
                     name: 'WeatherEffects',
                     component: WeatherEffects
-                },
-                {
-                    path: '/birds',
-                    name: 'Birds',
-                    component: Birds
-                },
-                {
-                    path: '/dragon',
-                    name: 'Dragon',
-                    component: Dragon
                 },
                 {
                     path: '/storeLoading',

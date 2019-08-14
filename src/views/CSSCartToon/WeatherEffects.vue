@@ -39,12 +39,12 @@
 
 <script>
 export default {
-    components: {},
-    data () {
-        return {};
-    },
-    computed: {},
-    methods: {}
+  components: {},
+  data() {
+    return {};
+  },
+  computed: {},
+  methods: {}
 };
 </script>
 <style lang='scss' scoped>
@@ -59,6 +59,7 @@ export default {
 .icon {
   margin: 0 auto;
   position: relative;
+  height: 90px;
 }
 .rainy {
   margin-top: 2rem;

@@ -31,7 +31,7 @@ export default {
     },
     watch: {
         form: {
-            handler (newValue, oldValue) {
+            handler (newValue) {
                 this.fileList = newValue[this.value] || [];
             },
             deep: true
@@ -51,7 +51,7 @@ export default {
             };
             formData.append('image', file.raw);
             this.$http.post('/api/upload', formData, headerConfig).then(res => {
-                let { success, url } = res;
+                let { url } = res;
                 let name = url.split('/');
                 this.fileList.push({
                     url: this.$API + url,
