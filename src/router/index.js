@@ -8,6 +8,7 @@ import UserDetail from './../views/UserDetail';
 import Knowledge from './../views/Knowledge';
 import ImageList from './../views/ImageList';
 import ImageDetail from './../views/ImageDetail';
+import FileChange from './../views/FileChange';
 import CSSPhoto from './../views/CSSCartToon/CSSPhoto';
 import WeatherEffects from './../views/CSSCartToon/WeatherEffects';
 import StoreLoading from './../views/CSSCartToon/StoreLoading';
@@ -73,6 +74,11 @@ export default new Router({
             path: '/imageDetail',
             name: 'ImageDetail',
             component: ImageDetail
+        },
+        {
+            path: '/fileChange',
+            name: 'FileChange',
+            component: FileChange
         }
     ]
 });

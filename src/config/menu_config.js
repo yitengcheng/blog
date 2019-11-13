@@ -28,5 +28,11 @@ module.exports = [
         title: '图片浏览',
         showFlag: false,
         hasJudge: true
+    },
+    {
+        path: '/fileChange',
+        title: '文件交换',
+        showFlag: true,
+        hasJudge: false
     }
 ];

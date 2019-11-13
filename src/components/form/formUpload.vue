@@ -21,67 +21,67 @@
 
 <script>
 export default {
-    name: 'upload',
-    props: ['value', 'label', 'listType', 'accept', 'form', 'limit'],
-    data () {
-        return {
-            dialogVisible: false,
-            fileList: []
-        };
-    },
-    watch: {
-        form: {
-            handler (newValue) {
-                this.fileList = newValue[this.value] || [];
-            },
-            deep: true
-        }
-    },
-    mounted () {
-        this.fileList = this.form[this.value] || [];
-    },
-    methods: {
-        upload () {
-            const formData = new FormData();
-            const uploadFiles = this.$refs.upload.uploadFiles;
-            const fileIndex = uploadFiles.length - 1;
-            const file = uploadFiles[fileIndex];
-            const headerConfig = {
-                headers: { 'Content-Type': 'multipart/form-data' }
-            };
-            formData.append('image', file.raw);
-            this.$http.post('/api/upload', formData, headerConfig).then(res => {
-                let { url } = res;
-                let name = url.split('/');
-                this.fileList.push({
-                    url: this.$API + url,
-                    name: name[name.length - 1]
-                });
-                this.$emit('onChange', this.fileList, this.value);
-            });
-        },
-        before (file) {
-            let testmsg = file.name.substring(file.name.lastIndexOf('.'));
-            let acceptList = this.accept.split(',');
-            let flag = this._.findIndex(acceptList, o => {
-                return o.trim() === testmsg;
-            });
-            if (this.accept && flag === -1) {
-                this.$message({
-                    message: `上传文件只能是 ${this.accept}格式!`,
-                    type: 'warning'
-                });
-            }
-            return this.accept && flag !== -1;
-        },
-        remove (file) {
-            let index = this._.findIndex(this.fileList, o => {
-                return o.uid === file.uid;
-            });
-            this.fileList.splice(index, 1);
-            this.$emit('onChange', this.fileList, this.value);
-        }
+  name: "upload",
+  props: ["value", "label", "listType", "accept", "form", "limit"],
+  data() {
+    return {
+      dialogVisible: false,
+      fileList: []
+    };
+  },
+  watch: {
+    form: {
+      handler(newValue) {
+        this.fileList = newValue[this.value] || [];
+      },
+      deep: true
     }
+  },
+  mounted() {
+    this.fileList = this.form[this.value] || [];
+  },
+  methods: {
+    upload() {
+      const formData = new FormData();
+      const uploadFiles = this.$refs.upload.uploadFiles;
+      const fileIndex = uploadFiles.length - 1;
+      const file = uploadFiles[fileIndex];
+      const headerConfig = {
+        headers: { "Content-Type": "multipart/form-data" }
+      };
+      formData.append("image", file.raw);
+      this.$http.post("/api/upload", formData, headerConfig).then(res => {
+        let { url } = res;
+        let name = url.split("/");
+        this.fileList.push({
+          url: this.$API + url,
+          name: name[name.length - 1]
+        });
+        this.$emit("onChange", this.fileList, this.value);
+      });
+    },
+    before(file) {
+      let testmsg = file.name.substring(file.name.lastIndexOf("."));
+      let acceptList = this.accept && this.accept.split(",");
+      let flag = this._.findIndex(acceptList, o => {
+        return o.trim() === testmsg;
+      });
+      if (this.accept && flag === -1) {
+        this.$message({
+          message: `上传文件只能是 ${this.accept}格式!`,
+          type: "warning"
+        });
+      }
+      return this.accept && flag !== -1;
+    },
+    remove(file) {
+      let index = this._.findIndex(this.fileList, o => {
+        return o.uid === file.uid;
+      });
+      this.fileList.splice(index, 1);
+      this.$emit("onChange", this.fileList, this.value);
+    }
+  }
 };
 </script>
 <style lang='scss' scoped>
