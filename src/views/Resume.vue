@@ -87,6 +87,9 @@
         封装可复用组件及功能函数，方便重复使用。
       </p>
     </div>
+    <div class="bottom">
+        <a href="http://www.beian.miit.gov.cn">网站备案号：黔ICP备19005795号-1</a>
+    </div>
   </div>
 </template>
 
@@ -202,5 +205,12 @@ export default {
 .pastProjectsText {
   font-size: 14px;
   line-height: 30px;
+}
+.bottom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 48px;
+    background-color: #666;
 }
 </style>
