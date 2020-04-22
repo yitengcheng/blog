@@ -201,6 +201,7 @@ export default {
 .pastProjectsTitle {
   font-size: 16px;
   line-height: 30px;
+  font-weight: 600;
 }
 .pastProjectsText {
   font-size: 14px;
