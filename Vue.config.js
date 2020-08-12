@@ -37,10 +37,10 @@ module.exports = {
         disableHostCheck: true,
         proxy: {//反向代理的方式解决跨域
             '/api': {
-                target: 'http://192.168.0.101:3000'
+                target: 'http://192.168.31.145:3000'
             },
             '/uploads': {
-                target: 'http://192.168.0.101:3000'
+                target: 'http://192.168.31.145:3000'
             }
         }
     },
