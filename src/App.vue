@@ -25,36 +25,53 @@
 <script>
 import SideBar from "./components/SideBar";
 export default {
-  name: "App",
-  components: { SideBar },
-  created() {
-    this.$router.replace("/");
-    // 在页面加载时读取sessionStorage里的状态信息
-    if (sessionStorage.getItem("store")) {
-      this.$store.replaceState(
-        Object.assign(
-          {},
-          this.$store.state,
-          JSON.parse(sessionStorage.getItem("store"))
-        )
-      );
-    }
+    name: "App",
+    components: { SideBar },
+    created() {
+        this.$router.replace("/");
+        // 在页面加载时读取sessionStorage里的状态信息
+        if (sessionStorage.getItem("store")) {
+            this.$store.replaceState(
+                Object.assign(
+                    {},
+                    this.$store.state,
+                    JSON.parse(sessionStorage.getItem("store"))
+                )
+            );
+        }
 
-    // 在页面刷新时将vuex里的信息保存到sessionStorage里
-    window.addEventListener("beforeunload", () => {
-      sessionStorage.setItem("store", JSON.stringify(this.$store.state));
-    });
-  },
-  data() {
-    return {
-      showBar: true
-    };
-  },
-  methods: {
-    barFlag() {
-      this.showBar = !this.showBar;
-    }
-  }
+        // 在页面刷新时将vuex里的信息保存到sessionStorage里
+        window.addEventListener("beforeunload", () => {
+            sessionStorage.setItem("store", JSON.stringify(this.$store.state));
+        });
+    },
+    mounted() {
+        setTimeout(() => {
+            window.L2Dwidget.init({
+                pluginRootPath: "live2dw/",
+                pluginJsPath: "lib/",
+                pluginModelPath: "live2d-widget-model-miku/assets/",
+                tagMode: false,
+                debug: false,
+                model: {
+                    jsonPath:"../live2dw/live2d-widget-model-miku/assets/miku.model.json",
+                },
+                display: { position: "right", width: 200, height: 300 },
+                mobile: { show: true },
+                log: false,
+            });
+        }, 1000);
+    },
+    data() {
+        return {
+            showBar: true,
+        };
+    },
+    methods: {
+        barFlag() {
+            this.showBar = !this.showBar;
+        },
+    },
 };
 </script>
 <style lang="scss" >

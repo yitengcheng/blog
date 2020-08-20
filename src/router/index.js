@@ -12,6 +12,7 @@ import FileChange from './../views/FileChange';
 import CSSPhoto from './../views/CSSCartToon/CSSPhoto';
 import WeatherEffects from './../views/CSSCartToon/WeatherEffects';
 import StoreLoading from './../views/CSSCartToon/StoreLoading';
+import TaintedChickenSoup from './../views/TaintedChickenSoup';
 
 Vue.use(Router);
 
@@ -80,6 +81,11 @@ export default new Router({
             path: '/fileChange',
             name: 'FileChange',
             component: FileChange
+        },
+        {
+            path: '/taintedChickenSoup',
+            name: 'TaintedChickenSoup',
+            component: TaintedChickenSoup
         }
     ]
 });
