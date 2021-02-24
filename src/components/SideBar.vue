@@ -46,37 +46,37 @@ import Login from "./Login";
 import { mapState } from "vuex";
 import menu from "../config/menu_config";
 export default {
-  components: { Login },
-  data() {
-    return {
-      activeIndex: "/",
-      menuList: menu
-    };
-  },
-  computed: {
-    ...mapState({
-      userInfo: state => state.user.user
-    })
-  },
-  methods: {
-    refeshList(user) {
-      this.menuList.forEach(item => {
-        if (item.hasJudge) {
-          if (item.title === "图片浏览") {
-            item.showFlag = this.$utils.hasPermission(user, ["watchImage"]);
-          }
+    components: { Login },
+    data() {
+        return {
+            activeIndex: "/",
+            menuList: menu
+        };
+    },
+    computed: {
+        ...mapState({
+            userInfo: state => state.user.user
+        })
+    },
+    methods: {
+        refeshList(user) {
+            this.menuList.forEach(item => {
+                if (item.hasJudge) {
+                    if (item.title === "图片浏览") {
+                        item.showFlag = this.$utils.hasPermission(user, ["watchImage"]);
+                    }
+                }
+            });
         }
-      });
+    },
+    mounted() {
+        this.refeshList(this.userInfo);
+    },
+    watch: {
+        userInfo(val) {
+            this.refeshList(val);
+        }
     }
-  },
-  mounted() {
-    this.refeshList(this.userInfo);
-  },
-  watch: {
-    userInfo(val) {
-      this.refeshList(val);
-    }
-  }
 };
 </script>
 <style lang='scss' scoped>
