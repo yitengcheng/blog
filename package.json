@@ -55,7 +55,7 @@
                 4
             ],
             "eqeqeq": 1,
-            "no-console":"off"
+            "no-console": "off"
         },
         "parserOptions": {
             "parser": "babel-eslint"
