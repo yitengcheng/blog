@@ -19,44 +19,44 @@
 
 <script>
 export default {
-  props: ["form", "label", "value", "options", "placeholder", "multiple"],
-  watch: {
-    input: {
-      handler(newValue) {
-        this.input = newValue;
-      }
-    },
-    form: {
-      handler(newValue) {
-        if (this.multiple) {
-          this.input = newValue[this.value] || [];
-        } else {
-          this.input = newValue[this.value] || "";
+    props: ["form", "label", "value", "options", "placeholder", "multiple"],
+    watch: {
+        input: {
+            handler(newValue) {
+                this.input = newValue;
+            }
+        },
+        form: {
+            handler(newValue) {
+                if (this.multiple) {
+                    this.input = newValue[this.value] || [];
+                } else {
+                    this.input = newValue[this.value] || "";
+                }
+            },
+            deep: true
         }
-      },
-      deep: true
+    },
+    data() {
+        return {
+            input: "",
+            place: ""
+        };
+    },
+    mounted() {
+        if (this.multiple) {
+            this.input = this.form[this.value] || [];
+        } else {
+            this.input = this.form[this.value] || "";
+        }
+        this.place = this.placeholder || "请选择" + this.label;
+    },
+    methods: {
+        onChange(value) {
+            this.input = value;
+            this.$emit("onChange", value, this.value);
+        }
     }
-  },
-  data() {
-    return {
-      input: "",
-      place: ""
-    };
-  },
-  mounted() {
-    if (this.multiple) {
-      this.input = this.form[this.value] || [];
-    } else {
-      this.input = this.form[this.value] || "";
-    }
-    this.place = this.placeholder || "请选择" + this.label;
-  },
-  methods: {
-    onChange(value) {
-      this.input = value;
-      this.$emit("onChange", value, this.value);
-    }
-  }
 };
 </script>
 <style lang='scss' scoped>

@@ -6,15 +6,15 @@
 export default {
     components: {},
     data() {
-    return {
+        return {
 
-    };
+        };
     },
     computed: {},
     methods: {
 
     },
-}
+};
 </script>
 <style lang='scss' scoped>
 .contain {

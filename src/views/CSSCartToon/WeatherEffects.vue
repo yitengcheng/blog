@@ -39,12 +39,12 @@
 
 <script>
 export default {
-  components: {},
-  data() {
-    return {};
-  },
-  computed: {},
-  methods: {}
+    components: {},
+    data() {
+        return {};
+    },
+    computed: {},
+    methods: {}
 };
 </script>
 <style lang='scss' scoped>

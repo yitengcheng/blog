@@ -20,53 +20,53 @@
 
 <script>
 export default {
-  props: [
-    "form",
-    "label",
-    "value",
-    "placeholder",
-    "showPassword",
-    "showWordLimit",
-    "type",
-    "rows",
-    "maxlength",
-    "append",
-    "resize",
-    "autosize",
-    "disabled"
-  ],
-  watch: {
-    input: {
-      handler(newValue) {
-        this.input = newValue;
-      }
+    props: [
+        "form",
+        "label",
+        "value",
+        "placeholder",
+        "showPassword",
+        "showWordLimit",
+        "type",
+        "rows",
+        "maxlength",
+        "append",
+        "resize",
+        "autosize",
+        "disabled"
+    ],
+    watch: {
+        input: {
+            handler(newValue) {
+                this.input = newValue;
+            }
+        },
+        form: {
+            handler(newValue) {
+                this.input = newValue[this.value] || "";
+            },
+            deep: true
+        }
     },
-    form: {
-      handler(newValue) {
-        this.input = newValue[this.value] || "";
-      },
-      deep: true
-    }
-  },
-  data() {
-    return {
-      input: "",
-      place: ""
-    };
-  },
-  mounted() {
-    this.input = this.form[this.value] || "";
-    this.place = this.placeholder || "请输入" + this.label;
-  },
-  methods: {
-    onChange(value) {
-      this.input = value;
-      this.$emit("onChange", value, this.value);
+    data() {
+        return {
+            input: "",
+            place: ""
+        };
     },
-    reset() {
-      this.input = "";
+    mounted() {
+        this.input = this.form[this.value] || "";
+        this.place = this.placeholder || "请输入" + this.label;
+    },
+    methods: {
+        onChange(value) {
+            this.input = value;
+            this.$emit("onChange", value, this.value);
+        },
+        reset() {
+            this.input = "";
+        }
     }
-  }
 };
 </script>
 <style lang='scss' scoped>

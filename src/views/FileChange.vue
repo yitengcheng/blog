@@ -19,57 +19,57 @@
 import Upload from "../components/form/formUpload";
 import { mapState } from "vuex";
 export default {
-  components: { Upload },
-  data() {
-    return {
-      sendFileInfo: {
-        files: []
-      },
-      filePaths: []
-    };
-  },
-  mounted() {
-    this.getFileExchanges();
-  },
-  computed: {
-    ...mapState({
-      user: state => state.user.user
-    })
-  },
-  methods: {
-    onChange(file, formType) {
-      this.sendFileInfo[formType] = file;
+    components: { Upload },
+    data() {
+        return {
+            sendFileInfo: {
+                files: []
+            },
+            filePaths: []
+        };
     },
-    getFileExchanges() {
-      this.$http
-        .post("/api/getFileExchanges", { userId: this.user._id })
-        .then(res => {
-          let { filePaths, success } = res;
-          if (success) {
-            this.filePaths = filePaths;
-          }
-        });
+    mounted() {
+        this.getFileExchanges();
     },
-    downLoad(file) {
-      window.open(file.url);
+    computed: {
+        ...mapState({
+            user: state => state.user.user
+        })
     },
-    doUpload() {
-      if (this.sendFileInfo.files.length === 0) {
-        this.$alert("请先上传文件");
-      } else {
-        this.$http
-          .post("/api/uploadFile", { files: this.sendFileInfo.files })
-          .then(res => {
-            let { success, msg } = res;
-            if (success) {
-              this.$alert("上传成功");
+    methods: {
+        onChange(file, formType) {
+            this.sendFileInfo[formType] = file;
+        },
+        getFileExchanges() {
+            this.$http
+                .post("/api/getFileExchanges", { userId: this.user._id })
+                .then(res => {
+                    let { filePaths, success } = res;
+                    if (success) {
+                        this.filePaths = filePaths;
+                    }
+                });
+        },
+        downLoad(file) {
+            window.open(file.url);
+        },
+        doUpload() {
+            if (this.sendFileInfo.files.length === 0) {
+                this.$alert("请先上传文件");
             } else {
-              this.$alert(msg);
+                this.$http
+                    .post("/api/uploadFile", { files: this.sendFileInfo.files })
+                    .then(res => {
+                        let { success, msg } = res;
+                        if (success) {
+                            this.$alert("上传成功");
+                        } else {
+                            this.$alert(msg);
+                        }
+                    });
             }
-          });
-      }
+        }
     }
-  }
 };
 </script>
 <style lang='scss' scoped>

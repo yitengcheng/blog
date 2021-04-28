@@ -8,37 +8,37 @@
 
 <script>
 export default {
-  props: ["form", "label", "value", "checks"],
-  watch: {
-    input: {
-      handler(newValue) {
-        this.input = newValue;
-      }
+    props: ["form", "label", "value", "checks"],
+    watch: {
+        input: {
+            handler(newValue) {
+                this.input = newValue;
+            }
+        },
+        form: {
+            handler(newValue) {
+                this.input = this.checks[newValue[this.value]] || this.checks[0];
+            },
+            deep: true
+        }
     },
-    form: {
-      handler(newValue) {
-        this.input = this.checks[newValue[this.value]] || this.checks[0];
-      },
-      deep: true
-    }
-  },
-  data() {
-    return {
-      input: ""
-    };
-  },
-  mounted() {
-    this.input = this.checks[this.form[this.value]] || this.checks[0];
-  },
-  methods: {
-    onChange(value) {
-      this.input = value;
-      this.$emit("onChange", this._.indexOf(this.checks, value), this.value);
+    data() {
+        return {
+            input: ""
+        };
     },
-    reset() {
-      this.input = "";
+    mounted() {
+        this.input = this.checks[this.form[this.value]] || this.checks[0];
+    },
+    methods: {
+        onChange(value) {
+            this.input = value;
+            this.$emit("onChange", this._.indexOf(this.checks, value), this.value);
+        },
+        reset() {
+            this.input = "";
+        }
     }
-  }
 };
 </script>
 <style lang='scss' scoped>

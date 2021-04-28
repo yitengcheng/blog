@@ -8,34 +8,34 @@
 
 <script>
 export default {
-  props: ["form", "label", "value", "checks"],
-  watch: {
-    inputList: {
-      handler(newValue) {
-        this.inputList = newValue;
-      }
+    props: ["form", "label", "value", "checks"],
+    watch: {
+        inputList: {
+            handler(newValue) {
+                this.inputList = newValue;
+            }
+        },
+        form: {
+            handler(newValue) {
+                this.inputList = newValue[this.value] || [];
+            },
+            deep: true
+        }
     },
-    form: {
-      handler(newValue) {
-        this.inputList = newValue[this.value] || [];
-      },
-      deep: true
-    }
-  },
-  data() {
-    return {
-      inputList: []
-    };
-  },
-  methods: {
-    onChange(value) {
-      this.inputList = value;
-      this.$emit("onChange", value, this.value);
+    data() {
+        return {
+            inputList: []
+        };
     },
-    reset() {
-      this.inputList = [];
+    methods: {
+        onChange(value) {
+            this.inputList = value;
+            this.$emit("onChange", value, this.value);
+        },
+        reset() {
+            this.inputList = [];
+        }
     }
-  }
 };
 </script>
 <style lang='scss' scoped>

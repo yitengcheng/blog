@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 export function format(fmt) {
     let o = {
         'M+': this.getMonth() + 1, // 月份

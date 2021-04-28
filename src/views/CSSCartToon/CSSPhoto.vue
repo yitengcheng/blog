@@ -11,11 +11,11 @@
 </template>
 <script>
 export default {
-  data() {
-    return {
-      img: require("@/assets/women.jpg")
-    };
-  }
+    data() {
+        return {
+            img: require("@/assets/women.jpg")
+        };
+    }
 };
 </script>
 <style lang='scss' scoped>
