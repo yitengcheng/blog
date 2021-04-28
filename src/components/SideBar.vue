@@ -2,9 +2,6 @@
   <el-menu
     :default-active="activeIndex"
     class="aside"
-    background-color="#545c64"
-    text-color="#fff"
-    active-text-color="#ffd04b"
     :router="true"
   >
     <Login class="login"></Login>
@@ -86,6 +83,7 @@ export default {
   flex-direction: column;
   border-right: 1px solid #545c64;
   overflow: hidden;
+  height: 100%;
 }
 .menuItem {
   text-align: center;

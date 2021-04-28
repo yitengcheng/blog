@@ -122,9 +122,6 @@
         根据甲方需求完成项目功能模块划分，设计数据库model，整理业务流程，编写服务器端接口。
       </p>
     </div>
-    <div class="bottom">
-      <a href="http://www.beian.miit.gov.cn">网站备案号：黔ICP备19005795号-1</a>
-    </div>
   </div>
 </template>
 
@@ -145,6 +142,7 @@ export default {
   display: flex;
   flex: 1;
   flex-direction: column;
+  overflow: auto;
 }
 .title {
   display: flex;
@@ -241,12 +239,5 @@ export default {
 .pastProjectsText {
   font-size: 16px;
   line-height: 30px;
-}
-.bottom {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 48px;
-  background-color: #666;
 }
 </style>

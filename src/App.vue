@@ -1,24 +1,22 @@
 <template>
-  <el-container id="app" style="backgroundColor:#f3f3f3">
+  <el-container id="app" style="backgroundcolor: #f3f3f3">
     <transition name="sideBar">
       <el-aside v-if="showBar" width="151px" class="sidebar-container">
-        <el-scrollbar style="height:100%">
-          <SideBar />
-        </el-scrollbar>
+        <SideBar />
       </el-aside>
     </transition>
-    <el-container>
-      <el-scrollbar style="width:100%;height:100%;backgroundColor:#fff">
-        <el-button
-          @click="barFlag"
-          class="showBarBtn"
-          :icon="showBar?'el-icon-d-arrow-left':'el-icon-d-arrow-right'"
-        />
-        <el-main class="main">
-          <router-view class="mainContain"></router-view>
-        </el-main>
-      </el-scrollbar>
-    </el-container>
+    <el-main style="overflow: hidden; padding: 0px">
+      <el-button
+        @click="barFlag"
+        class="showBarBtn"
+        :icon="showBar ? 'el-icon-d-arrow-left' : 'el-icon-d-arrow-right'"
+      />
+      <router-view style="height: calc(100% - 60px)"></router-view>
+      <el-footer class="bottom">
+      <el-link href="http://www.beian.miit.gov.cn" target="_blank" style="color: #fff">网站备案号：黔ICP备19005795号-1</el-link>
+    </el-footer>
+    </el-main>
+    
   </el-container>
 </template>
 
@@ -54,7 +52,8 @@ export default {
                 tagMode: false,
                 debug: false,
                 model: {
-                    jsonPath:"/blog/live2dw/live2d-widget-model-miku/assets/miku.model.json",
+                    jsonPath:
+            "/blog/live2dw/live2d-widget-model-miku/assets/miku.model.json",
                 },
                 display: { position: "right", width: 200, height: 300 },
                 mobile: { show: true },
@@ -85,14 +84,10 @@ export default {
   height: 100%;
   margin: 0;
   padding: 0 !important;
-}
-.el-scrollbar__wrap {
-  overflow-x: hidden !important;
-  margin-bottom: 0px !important;
+  overflow: hidden;
 }
 .sidebar-container {
   overflow: hidden;
-  background-color: #545c64;
 }
 .showBarBtn {
   padding: 0 !important;
@@ -114,5 +109,11 @@ export default {
 .sideBar-enter-active,
 .sideBar-leave-active {
   transition: all 0.3s;
+}
+.bottom {
+    background-color: #409EFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 </style>

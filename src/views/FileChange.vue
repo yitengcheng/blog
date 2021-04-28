@@ -1,5 +1,5 @@
 <template>
-  <div class="contain">
+  <el-main class="contain">
     <el-form :model="sendFileInfo" ref="sendFileInfo" label-width="100px" label-position="right">
       <Upload label="文件" value="files" :form="sendFileInfo" listType="text" @onChange="onChange" />
     </el-form>
@@ -12,7 +12,7 @@
         @click="downLoad(filePath)"
       >下载{{index+1}}</el-button>
     </div>
-  </div>
+  </el-main>
 </template>
 
 <script>
@@ -75,9 +75,10 @@ export default {
 <style lang='scss' scoped>
 .contain {
   display: flex;
+  height: 100%;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  padding-top: 200px;
 }
 .downLoadBtn {
   margin-top: 20px;
